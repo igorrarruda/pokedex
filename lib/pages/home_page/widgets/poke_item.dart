@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/consts/consts_api.dart';
 import 'package:pokedex/consts/consts_app.dart';
 
 class PokeItem extends StatelessWidget {
@@ -99,7 +98,14 @@ class PokeItem extends StatelessWidget {
           ),
         ),
         decoration: BoxDecoration(
-          color: ConstApi.getColorType(type: types[0]),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              ConstsApp.getColorType(type: types[0]).withOpacity(0.7),
+              ConstsApp.getColorType(type: types[0]),
+            ],
+          ),
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ),
