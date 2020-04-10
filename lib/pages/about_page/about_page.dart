@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 import 'package:pokedex/pages/about_page/widgets/about_item.dart';
+import 'package:pokedex/pages/about_page/widgets/evolution_item.dart';
 import 'package:pokedex/stores/pokeapi_store.dart';
 
 class AboutPage extends StatefulWidget {
@@ -76,9 +77,7 @@ class _AboutPageState extends State<AboutPage>
         controller: _pageController,
         children: <Widget>[
           AboutItem(),
-          Container(
-            color: Colors.blue,
-          ),
+          EvolutionItem(),
           Container(
             color: Colors.yellow,
           ),

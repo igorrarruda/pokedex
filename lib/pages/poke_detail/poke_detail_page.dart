@@ -243,41 +243,46 @@ class _PokeDetailPageState extends State<PokeDetailPage> {
                             );
                           },
                         ),
-                        Observer(
-                          name: 'Pokemon',
-                          builder: (context) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: <Widget>[
-                                AnimatedPadding(
-                                  child: Hero(
-                                    tag: index == _pokemonStore.posicaoAtual
-                                        ? _pokePageView.name
-                                        : 'none' + index.toString(),
-                                    child: _pokemonStore.getImage(
-                                      numero: _pokePageView.num,
-                                      width: 150,
-                                      height: 150,
-                                      color: _pokemonStore.posicaoAtual == index
-                                          ? null
-                                          : Colors.black.withOpacity(0.5),
-                                      alignment: Alignment.center,
+                        IgnorePointer(
+                          child: Observer(
+                            name: 'Pokemon',
+                            builder: (context) {
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  AnimatedPadding(
+                                    child: Hero(
+                                      tag: index == _pokemonStore.posicaoAtual
+                                          ? _pokePageView.name
+                                          : 'none' + index.toString(),
+                                      child: _pokemonStore.getImage(
+                                        numero: _pokePageView.num,
+                                        width: 150,
+                                        height: 150,
+                                        color:
+                                            _pokemonStore.posicaoAtual == index
+                                                ? null
+                                                : Colors.black.withOpacity(0.5),
+                                        alignment: Alignment.center,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 400),
+                                    curve: Curves.easeIn,
+                                    padding: EdgeInsets.only(
+                                      top: index == _pokemonStore.posicaoAtual
+                                          ? 0
+                                          : 80,
+                                      bottom:
+                                          index == _pokemonStore.posicaoAtual
+                                              ? 0
+                                              : 80,
                                     ),
                                   ),
-                                  duration: Duration(milliseconds: 400),
-                                  curve: Curves.easeIn,
-                                  padding: EdgeInsets.only(
-                                    top: index == _pokemonStore.posicaoAtual
-                                        ? 0
-                                        : 80,
-                                    bottom: index == _pokemonStore.posicaoAtual
-                                        ? 0
-                                        : 80,
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+                                ],
+                              );
+                            },
+                          ),
                         ),
                       ],
                     );
